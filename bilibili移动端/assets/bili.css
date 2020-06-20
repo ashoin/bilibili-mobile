@@ -1,0 +1,202 @@
+.header {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .logo {
+    margin-left: 18px;
+}
+
+.header .search-input {
+    display: flex;
+    align-items: center;
+    width: 132px;
+    height: 24px;
+    margin-left: 10px;
+    background-color: #f4f4f4;
+    border-radius: 12px;
+    font-size: 10px;
+    color: #999999;
+}
+
+.header .search-input svg {
+    margin: 0 5px;
+}
+
+.header .avatar svg {
+    border-radius: 50%;
+}
+
+.header .search-input span {
+    width: 92px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.header .download-app {
+    width: 78px;
+    height: 23px;
+    padding: 0 5px;
+    margin-right: 12px;
+    border-radius: 4px;
+    background-color: #fb7299;
+    line-height: 23px;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+}
+
+.nav-box {
+    position: fixed;
+    top: 55px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    /* background-color: yellow; */
+}
+
+.nav-box .nav-list {
+    width: 85%;
+    padding-left: 24px;
+    white-space: nowrap;
+    overflow-x: scroll;
+    /* background-color: pink; */
+}
+
+.nav-box .nav-list::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-box .nav {
+    display: inline-block;
+    height: 30px;
+    margin-right: 40px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #757575;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-box .nav.active {
+    color: #fb7299;
+    border-color: pink;
+}
+
+.nav-box .down {
+    position: absolute;
+    top: 1px;
+    right: 13px;
+}
+
+.hide-nav-box {
+    /* display: none; */
+    position: fixed;
+    top: 54px;
+    left: 0px;
+    right: 0px;
+    padding-bottom: 20px;
+    z-index: 2;
+    transition: top .3s;
+    background-color: #fff
+}
+
+.hide-nav-box.hide {
+    top: -117px;
+}
+
+
+/* .hide-nav-box .nav-list {} */
+
+.hide-nav-box .nav {
+    display: inline-block;
+    width: 32px;
+    margin: 0 14px;
+    margin-bottom: 10px;
+    padding: 6px 0;
+    font-size: 14px;
+    text-align: center;
+    color: #757575;
+    border-bottom: 2px solid transparent;
+}
+
+.hide-nav-box .nav.big {
+    width: 46px;
+    margin: 0 7px;
+}
+
+.hide-nav-box .nav.active {
+    border-color: #fb7299;
+    color: #fb7299;
+}
+
+.hide-nav-box .up {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.banner-box {
+    position: relative;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    height: 110px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.banner-box .banner-list {
+    position: absolute;
+    left: 0;
+    transition: left .3s;
+    width: calc(350px * 4);
+}
+
+.banner-box .banner {
+    float: left;
+    width: 350px;
+    height: 110px;
+}
+
+.banner-box .poster {
+    width: 100%;
+    height: 100%;
+}
+
+.banner-box .index-list {
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    height: 10px;
+    padding: 0 3px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+}
+
+.banner-box .index {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    margin: 0 3px;
+    background-color: #fff;
+}
+
+.banner-box .index.active {
+    background-color: #fb7299;
+}
