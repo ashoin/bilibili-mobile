@@ -28,32 +28,41 @@
         </div>
 
         <!-- 导航区 -->
-        <div :class="{
-            'nav-box': navIndex === 1,
-            'hide-nav-box': navIndex === 2,
-            hide : navIndex === 2 && navHide,
-        }" v-for="navIndex in 2">
-            <ul class="nav-list">
-                <li class="nav" :class="{'big': nav.title.length === 3 && navIndex === 2 , active: index === navActive} " v-for="(nav,index) in navList" :key="nav.id" @click="handleActive(index)">{{ nav.title }}</li>
-            </ul>
-            <div class="down" v-if="navIndex === 1" @click="handleDown">
-                <svg height="32px" width="16px" viewBox="0 0 1024 1024"><path d="M515.2 649.6L169.6 304c-12.8-12.8-32-12.8-44.8 0s-12.8 35.2 0 48l368 364.8c12.8 12.8 32 12.8 44.8 0l361.6-361.6c12.8-12.8 12.8-35.2 0-48s-32-12.8-44.8 0L515.2 649.6z" fill="#ccc"></path></svg>
+        <template v-if= "navList.length">
+            <div 
+            v-for="navIndex in 2"
+            :key="navIndex"
+            :class="{
+                'nav-box': navIndex === 1,
+                'hide-nav-box': navIndex === 2,
+                hide : navIndex === 2 && navHide,
+            }">
+                <ul class="nav-list">
+                    <li class="nav" :class="{'big': nav.title.length === 3 && navIndex === 2 , active: index === navActive} " v-for="(nav,index) in navList" :key="nav.id" @click="handleActive(index)">{{ nav.title }}</li>
+                </ul>
+                <div class="down" v-if="navIndex === 1" @click="handleDown">
+                    <svg height="32px" width="16px" viewBox="0 0 1024 1024"><path d="M515.2 649.6L169.6 304c-12.8-12.8-32-12.8-44.8 0s-12.8 35.2 0 48l368 364.8c12.8 12.8 32 12.8 44.8 0l361.6-361.6c12.8-12.8 12.8-35.2 0-48s-32-12.8-44.8 0L515.2 649.6z" fill="#ccc"></path></svg>
+                </div>
+                <div class="up" v-else @click="handleDown">
+                    <svg height="32px" width="16px" viewBox="0 0 1024 1024"><path d="M854.4 713.6c12.8 12.8 32 12.8 44.8 0s12.8-35.2 0-48L537.6 304c-12.8-12.8-32-12.8-44.8 0L124.8 672c-12.8 12.8-12.8 35.2 0 48s32 12.8 44.8 0l345.6-342.4 339.2 336z" fill="#ccc"></path></svg>
+                </div>
             </div>
-            <div class="up" v-else @click="handleDown">
-                <svg height="32px" width="16px" viewBox="0 0 1024 1024"><path d="M854.4 713.6c12.8 12.8 32 12.8 44.8 0s12.8-35.2 0-48L537.6 304c-12.8-12.8-32-12.8-44.8 0L124.8 672c-12.8 12.8-12.8 35.2 0 48s32 12.8 44.8 0l345.6-342.4 339.2 336z" fill="#ccc"></path></svg>
-            </div>
-        </div>
+        </template>
+        
 
         <!-- 轮播图区 -->
 
-        <div class="banner-box">
+        <div class="banner-box" v-if="bannerList.length">
             <ul class="banner-list" :style="bannerStyle" @transitionend="handleTransitionEnd">
                 <li class="banner" v-for="banner in bannerList" :key="banner.id">
                     <img :src="banner.poster" :alt="banner.title">
                 </li>
             </ul>
             <ul class="index-list">
-                <li class="index" v-for="index in bannerList.length -1" :key="index" :class="{
+                <li class="index" 
+                v-for="index in bannerList.length -1" 
+                :key="index" 
+                :class="{
                     active:index -1 === bannerActiveIndex % 3,
                 }"></li>
             </ul>
