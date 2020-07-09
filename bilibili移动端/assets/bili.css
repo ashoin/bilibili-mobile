@@ -68,11 +68,11 @@ html {
 
 .nav-box {
     position: fixed;
-    top: 55px;
+    top: 54px;
     left: 0;
     right: 0;
     z-index: 1;
-    /* background-color: yellow; */
+    background-color: #fff;
 }
 
 .nav-box .nav-list {
